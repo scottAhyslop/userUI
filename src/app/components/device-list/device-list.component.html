@@ -4,31 +4,78 @@
     
     <!-- *ngIf="devices" -->
     
-    <table class="table table-striped" id="device-list-table" >
-        <thead>
-            <tr>
-                <th>Device Id:</th>
-                <th>Name:</th>
-                <th>OS:</th>
-                <th>DeviceType: </th>
-                <th>Temp:</th>
-                <th>Status:</th>
-                <th>Time In Use:</th>
-                <th>Info:</th>
-            </tr>
-        </thead>
-    <tbody>
-    
-        <tr *ngFor="let device of devices">
-            <td>{{ device.DeviceId }}</td>
-            <td>{{ device.DeviceName }}</td>
-           <td>{{ device.DeviceOS }}</td>
-            <td>{{ device.DeviceType }}</td>
-            <td>{{ device.Temperature }}</td>
-            <td>{{ device.DeviceStatus }}</td>
-            <td>{{ device.TimeInUse }}</td> 
-            <td><button class="btn btn-outline-info btn-small"><i class="bi bi-info-circle"></i></button></td>
-        </tr>
-    </tbody>
-    </table>
+    <!--boostrap container to hold data-->
+    <div class="container">
+        <div class="row">
+        <!--heading row-->
+            <div class="col-sm-2">
+                Name:
+            </div>
+            <div class="col-sm-2">
+                OS: <!--{{ device.DeviceOS }} os boostrap icon here-->
+                DeviceType: <!--{{ device.DeviceType }} device bootstrap Icon here-->
+            </div>
+            <div class="col-sm-2">
+                Temp:
+            </div>
+            <div class="col-sm-2">
+                Status:
+            </div>
+            <div class="col-sm-2">
+                Time In Use:
+            </div>
+            <div class="col-sm-2">
+                Info:
+            </div>
+        </div><!--end heading row-->
+        <div class="row" *ngFor="let device of devices">
+            <div class="col-sm-2">
+                {{ device.DeviceName }}
+            </div>
+            <div class="col-sm-2">
+                {{ device.DeviceOSIconPath }}<!--os boostrap icon here-->
+                {{ device.DeviceIconPath}}<!--device bootstrap Icon here-->
+            </div>
+            <div class="col-sm-2">
+                {{ device.Temperature }}
+            </div>
+            <div class="col-sm-2">
+                {{ device.DeviceStatus }}
+            </div>
+            <div class="col-sm-2">
+                {{ device.TimeInUse }}
+            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-outline-info btn-small"><i class="bi bi-info-circle"></i></button>
+            </div>
+        </div>
     </div>
+</div>
+
+<!--<table class="table table-striped" id="device-list-table" >
+            <thead>
+                <tr>
+                    
+                    <th>Name:</th>
+                    <th>OS:</th>
+                    <th>DeviceType: </th>
+                    <th>Temp:</th>
+                    <th>Status:</th>
+                    <th>Time In Use:</th>
+                    <th></th>
+                </tr>
+            </thead>
+        <tbody>
+        
+            <tr *ngFor="let device of devices">
+                <td>{{ device.DeviceId }}</td>
+                <td>{{ device.DeviceName }}</td>
+            <td>{{ device.DeviceOS }}</td>
+                <td>{{ device.DeviceType }}</td>
+                <td>{{ device.Temperature }}</td>
+                <td>{{ device.DeviceStatus }}</td>
+                <td>{{ device.TimeInUse }}</td> 
+                <td><button class="btn btn-outline-info btn-small"><i class="bi bi-info-circle"></i></button></td>
+            </tr>
+        </tbody>
+        </table>-->

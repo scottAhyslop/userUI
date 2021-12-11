@@ -7,18 +7,23 @@ import { DeviceListComponent } from './components/device-list/device-list.compon
 import { DeviceComponent } from './components/device/device.component';
 import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AddDeviceComponent } from './components/add-device/add-device.component';
 @NgModule({
   declarations: [
     AppComponent,
     DeviceListComponent,
     DeviceComponent,
     SearchComponent,
-    HomeComponent
+    HomeComponent,
+    AddDeviceComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
