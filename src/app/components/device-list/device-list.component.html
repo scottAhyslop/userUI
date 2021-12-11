@@ -1,1 +1,34 @@
-<p>device-list works!</p>
+<div class="container" id="deviceContainer">
+    <h1>Devices List</h1>
+    <!-- *ngIf="!devices" -->
+    
+    <!-- *ngIf="devices" -->
+    
+    <table class="table table-striped" id="device-list-table" >
+        <thead>
+            <tr>
+                <th>Device Id:</th>
+                <th>Name:</th>
+                <th>OS:</th>
+                <th>DeviceType: </th>
+                <th>Temp:</th>
+                <th>Status:</th>
+                <th>Time In Use:</th>
+                <th>Info:</th>
+            </tr>
+        </thead>
+    <tbody>
+    
+        <tr *ngFor="let device of devices">
+            <td>{{ device.DeviceId }}</td>
+            <td>{{ device.DeviceName }}</td>
+           <td>{{ device.DeviceOS }}</td>
+            <td>{{ device.DeviceType }}</td>
+            <td>{{ device.Temperature }}</td>
+            <td>{{ device.DeviceStatus }}</td>
+            <td>{{ device.TimeInUse }}</td> 
+            <td><button class="btn btn-outline-info btn-small"><i class="bi bi-info-circle"></i></button></td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
