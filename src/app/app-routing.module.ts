@@ -7,9 +7,11 @@ import { DeviceComponent } from './components/device/device.component';
 import { DeviceListComponent } from './components/device-list/device-list.component';
 import { EditDeviceComponent } from './components/edit-device/edit-device.component';
 import { SearchComponent } from './components/search/search.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
 
+  { path: '**', component:AppComponent }, //catch-all for route for any route fails
   { path: 'home', component: HomeComponent },
   { path: 'add-device', component: AddDeviceComponent },
   { path: 'device', component: DeviceComponent },

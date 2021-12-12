@@ -1,4 +1,4 @@
-<div class="container" id="deviceContainer">
+<div class="container" id="deviceContainer" data-ng-controller="SubscriberController as subscriber">
     <h1>Devices List</h1>
     <button 
     class="btn btn-outline-info m-2 float-end"
@@ -28,8 +28,8 @@
                 </tr>
             </thead>
         <tbody>
-        
-            <tr *ngFor="let device of devices">
+        <!--table row for each instance of device-->
+            <tr *ngFor="let device of devices?.devices">
                 <td>{{ device.DeviceId }}</td>
                 <td>{{ device.DeviceName }}</td>
             <td>{{ device.DeviceOS }}</td>
@@ -122,7 +122,7 @@
             <div class="modal-body">
                 <div class="input-group mb-3">
                     <span class="input-group-text">Device Name</span>
-                    <input type="text" class="form-control" [(ngModel)]="DeviceName" >
+                    <input type="text" class="form-control" data-ng-model="subscriber=DeviceName" >
                 </div>
                 <button
                     type="button"
