@@ -13,45 +13,86 @@
     <!-- *ngIf="devices" -->
     
     <!--boostrap container to hold data-->
+<!--table version-->
+
+        
 
     <table class="table table-striped" id="device-list-table" >
-            <thead>
-                <tr>
-                    
-                    <th>Name:</th>
-                    <th>OS:</th>
-                    <th>DeviceType: </th>
-                    <th>Temp:</th>
-                    <th>Status:</th>
-                    <th>Time In Use:</th>
-                    <th></th>
-                </tr>
-            </thead>
-        <tbody>
-        <!--table row for each instance of device-->
-            <tr *ngFor="let device of devices?.devices">
-                <td>{{ device.DeviceId }}</td>
-                <td>{{ device.DeviceName }}</td>
-            <td>{{ device.DeviceOS }}</td>
-                <td>{{ device.DeviceType }}</td>
-                <td>{{ device.Temperature }}</td>
-                <td>{{ device.DeviceStatus }}</td>
-                <td>{{ device.TimeInUse }}</td> 
-                <td><button class="btn btn-outline-info btn-small"><i class="bi bi-info-circle"></i></button></td>
+        <thead>
+            <tr>
+                
+                <th>ID: Name:</th>
+                <th>OS:  DeviceType:</th>
+                
+                <th>Temp:</th>
+                <th>Status:</th>
+                <th>Time In Use:</th>
+                <th></th>
             </tr>
-        </tbody>
-        </table>
+        </thead>
+    <tbody>
+    <!-- table row for each instance of device -->
+    <tr *ngFor="let device of devices?.devices">
+        <td>{{ device.DeviceId }}{{ device.DeviceName }}</td>
+       
+    <td>{{ device.DeviceOS }}{{ device.DeviceType }}</td>
         
-<!-- 
-<div class="container" *ngIf="devices">
-        <div class="row">
+        <td>{{ device.Temperature }}</td>
+        <td>{{ device.DeviceStatus }}</td>
+        <td>{{ device.TimeInUse }}</td> 
+        <td><button class="btn btn-outline-info btn-small"><i class="bi bi-info-circle"></i></button></td>
+    </tr>
+</tbody>
+</table>
+    
+</div><!--end device container-->
+
+<!--pop-up modal section for the different actions on Device-->
+<div class="modal fade exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    {{ modalTitle }}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Device Name</span>
+                    <input type="text" class="form-control" data-ng-model="subscriber=DeviceName" >
+                </div>
+                <button
+                    type="button"
+                    class="btn btn-small btn-outline-success"
+                    (click)="createClick()"
+                    *ngIf="DeviceId==0"
+                    Create
+                ></button>
+                <button
+                    type="button"
+                    class="btn btn-small btn-outline-warning"
+                    (click)="updateClick()"
+                    *ngIf="DeviceId!=0">
+                    Update
+                ></button>
+            </div>
+        </div>
+    </div>
+</div><!--end example modal-->
+
+    
+    <!--bootstrap row and column version  <div class="container" *ngIf="devices">
+<div class="row">
         heading row
         <div class="col-sm-2">
             Name:
         </div>
         <div class="col-sm-2">
             OS: {{ devices.DeviceOS }} os boostrap icon here
-            DeviceType: {{ devices.DeviceType }} device bootstrap Icon here
+            DeviceType: {{ devices.DeviceType }} device bootstrap Icon  here
         </div>
         <div class="col-sm-2">
             Temp:
@@ -103,44 +144,5 @@
             </button>
         </div>
     </div>
-</div> -->
-    
-</div><!--end device container-->
-
-<!--pop-up modal section for the different actions on Device-->
-<div class="modal fade exampleModal" tabindex="-1"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    {{ modalTitle }}
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Device Name</span>
-                    <input type="text" class="form-control" data-ng-model="subscriber=DeviceName" >
-                </div>
-                <button
-                    type="button"
-                    class="btn btn-small btn-outline-success"
-                    (click)="createClick()"
-                    *ngIf="DeviceId==0"
-                    Create
-                ></button>
-                <button
-                    type="button"
-                    class="btn btn-small btn-outline-warning"
-                    (click)="updateClick()"
-                    *ngIf="DeviceId!=0">
-                    Update
-                ></button>
-            </div>
-        </div>
-    </div>
-</div><!--end example modal-->
-
+</div>   -->
 

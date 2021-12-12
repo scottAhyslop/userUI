@@ -30,7 +30,7 @@ export class DeviceListComponent implements OnInit {
 /* GetAllDevices*/
 
   refreshDevices(){
-    this.http.get<any>(environment.API_URL+"Devices/")
+    this.http.get<any>(environment.API_URL+"Devices")
     .subscribe(data=>{
       this.devices=data;
     });
