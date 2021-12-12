@@ -1,58 +1,20 @@
 <div class="container" id="deviceContainer">
     <h1>Devices List</h1>
+    <button 
+    class="btn btn-outline-info m-2 float-end"
+    data-bs-toggle="modal"
+    data-bs-target="exampleModal"
+    (click)="addClick()"
+    >Add Device
+    </button>
+
     <!-- *ngIf="!devices" -->
     
     <!-- *ngIf="devices" -->
     
     <!--boostrap container to hold data-->
-    <div class="container">
-        <div class="row">
-        <!--heading row-->
-            <div class="col-sm-2">
-                Name:
-            </div>
-            <div class="col-sm-2">
-                OS: <!--{{ device.DeviceOS }} os boostrap icon here-->
-                DeviceType: <!--{{ device.DeviceType }} device bootstrap Icon here-->
-            </div>
-            <div class="col-sm-2">
-                Temp:
-            </div>
-            <div class="col-sm-2">
-                Status:
-            </div>
-            <div class="col-sm-2">
-                Time In Use:
-            </div>
-            <div class="col-sm-2">
-                Info:
-            </div>
-        </div><!--end heading row-->
-        <div class="row" *ngFor="let device of devices">
-            <div class="col-sm-2">
-                {{ device.DeviceName }}
-            </div>
-            <div class="col-sm-2">
-                {{ device.DeviceOSIconPath }}<!--os boostrap icon here-->
-                {{ device.DeviceIconPath}}<!--device bootstrap Icon here-->
-            </div>
-            <div class="col-sm-2">
-                {{ device.Temperature }}
-            </div>
-            <div class="col-sm-2">
-                {{ device.DeviceStatus }}
-            </div>
-            <div class="col-sm-2">
-                {{ device.TimeInUse }}
-            </div>
-            <div class="col-sm-2">
-                <button class="btn btn-outline-info btn-small"><i class="bi bi-info-circle"></i></button>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!--<table class="table table-striped" id="device-list-table" >
+    <table class="table table-striped" id="device-list-table" >
             <thead>
                 <tr>
                     
@@ -78,4 +40,107 @@
                 <td><button class="btn btn-outline-info btn-small"><i class="bi bi-info-circle"></i></button></td>
             </tr>
         </tbody>
-        </table>-->
+        </table>
+        
+<!-- 
+<div class="container" *ngIf="devices">
+        <div class="row">
+        heading row
+        <div class="col-sm-2">
+            Name:
+        </div>
+        <div class="col-sm-2">
+            OS: {{ devices.DeviceOS }} os boostrap icon here
+            DeviceType: {{ devices.DeviceType }} device bootstrap Icon here
+        </div>
+        <div class="col-sm-2">
+            Temp:
+        </div>
+        <div class="col-sm-2">
+            Status:
+        </div>
+        <div class="col-sm-2">
+            Time In Use:
+        </div>
+        <div class="col-sm-2">
+            Info:
+        </div>
+    </div> 
+    data row for each device in our response
+    <div class="row" *ngFor="let device of devices">
+        <div class="col-sm-2">
+            {{ device.DeviceName }}
+        </div>
+        <div class="col-sm-2">
+            {{ device.DeviceOSIconPath }}os boostrap icon here
+            {{ device.DeviceIconPath}}
+        </div>
+        <div class="col-sm-2">
+            {{ device.Temperature }}
+        </div>
+        <div class="col-sm-2">
+            {{ device.DeviceStatus }}
+        </div>
+        <div class="col-sm-2">
+            {{ device.TimeInUse }}
+        </div>
+        <div class="col-sm-2">
+            
+            <button class="btn btn-outline-info btn-small"><i class="bi bi-info-circle"></i></button>
+            
+            <button class="btn btn-outline-info m-2 float-end"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                click="editClick(device)"
+            ><i class="bi bi-pen"
+                ></i>
+            </button>
+            <button class="btn btn-outline-info m-2 float-end"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                click="deleteClick(device.DeviceId)"
+            ><i class="bi bi-trash"></i>
+            </button>
+        </div>
+    </div>
+</div> -->
+    
+</div><!--end device container-->
+
+<!--pop-up modal section for the different actions on Device-->
+<div class="modal fade exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    {{ modalTitle }}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Device Name</span>
+                    <input type="text" class="form-control" [(ngModel)]="DeviceName" >
+                </div>
+                <button
+                    type="button"
+                    class="btn btn-small btn-outline-success"
+                    (click)="createClick()"
+                    *ngIf="DeviceId==0"
+                    Create
+                ></button>
+                <button
+                    type="button"
+                    class="btn btn-small btn-outline-warning"
+                    (click)="updateClick()"
+                    *ngIf="DeviceId!=0">
+                    Update
+                ></button>
+            </div>
+        </div>
+    </div>
+</div><!--end example modal-->
+
+

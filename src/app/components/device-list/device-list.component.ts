@@ -16,6 +16,10 @@ export class DeviceListComponent implements OnInit {
 
   devices: any = [];
 
+  modalTitle="";
+  DeviceId=0;
+  DeviceName="";
+
   ngOnInit(): void {
     this.refreshDevices();
   }
@@ -27,4 +31,49 @@ export class DeviceListComponent implements OnInit {
       this.devices=data;
     });
   }
+
+  addClick(){
+    this.modalTitle = "Add Device";
+    this.DeviceId=0;
+    this.DeviceName="";
+  }//end addClick
+  
+  editClick(device:any){
+    this.modalTitle = "Edit Device";
+    this.DeviceId=device.DeviceId;
+    this.DeviceName=device.DeviceName;
+  }//end editClick
+  
+  createClick(){
+    var val={
+      DeviceName: this.DeviceName
+    };
+    this.http.post(environment.API_URL+'device', val)
+    .subscribe(res=>{
+      alert(res.toString());
+      this.refreshDevices();
+    });
+  }//end createClick
+
+  updateClick(){
+    var val={
+      DeviceId: this.DeviceId
+    };
+    this.http.put(environment.API_URL+'device', val)
+    .subscribe(res=>{
+      alert(res.toString());
+      this.refreshDevices();
+    });
+  }//end updateClick
+
+  deleteClick(DeviceId:any){
+   if (confirm('Are you sure?')) {
+    this.http.delete(environment.API_URL+'device/'+ DeviceId)
+    .subscribe(res=>{
+      alert(res.toString());
+      this.refreshDevices();
+    }); 
+   }
+    
+  }//end deleteClick
 }

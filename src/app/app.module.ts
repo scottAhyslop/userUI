@@ -8,8 +8,10 @@ import { DeviceComponent } from './components/device/device.component';
 import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddDeviceComponent } from './components/add-device/add-device.component';
+import { EditDeviceComponent } from './components/edit-device/edit-device.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,15 +19,17 @@ import { AddDeviceComponent } from './components/add-device/add-device.component
     DeviceComponent,
     SearchComponent,
     HomeComponent,
-    AddDeviceComponent
+    AddDeviceComponent,
+    EditDeviceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AppRoutingModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
