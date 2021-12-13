@@ -49,10 +49,10 @@ export class DeviceListComponent implements OnInit {
   }//end editClick
   
   createClick(){
-    var val={
+    var field={
       DeviceName: this.DeviceName
     };
-    this.http.post(environment.API_URL+'device', val)
+    this.http.post(environment.API_URL+'Devices', field)
     .subscribe(res=>{
       alert(res.toString());
       this.refreshDevices();

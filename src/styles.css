@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@media screen and (min-width: 360px) and (max-width:400px) {
+  
+  
+    h1{
+      font-size: 90%;
+    }
+   
+    nav {
+      width: 70%;
+    }
+    table.table.table-striped#device-list-table thead th tr tbody tr td{
+      width: 30%;
+    }
+  }
+  

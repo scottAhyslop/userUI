@@ -1,1 +1,103 @@
-<p>device works!</p>
+<button 
+    class="btn btn-outline-info m-2 float-end"
+    data-bs-toggle="modal"
+    data-bs-target="exampleModal"
+    (click)="addClick()"
+    >Add Device
+</button>
+<!--table to display single device-->
+<table class="table table-striped" id="device-list-table" >
+    <thead>
+        <tr>
+            <th>Device Name: </th>
+            <th>Device OS:  </th>
+            <th>Device Type:</th>
+            <th>Actions:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let device of devices">
+            <td>{{ device.DeviceName }}</td>
+            <td>{{ device.DeviceOS }} </td>
+            <td>{{ device.DeviceType }} </td>
+           
+            <td>
+            <!--create new device-->
+            <button
+                type="button"
+                class="btn btn-small btn-outline-success"
+                (click)="createClick()"
+                *ngIf="DeviceId==0">
+                Create
+            </button>
+            <!--check b.s. icon-->
+            <button
+                type="button"
+                class="btn btn-small btn-outline-warning"
+                (click)="updateClick()"
+                >
+                <i class="bi bi-check-square"></i>
+            </button>
+            <!--delete b.s. icon-->
+            <button
+                    type="button"
+                    class="btn btn-small btn-outline-danger"
+                    (click)="deleteClick(device.DeviceId)"
+                >
+                    <i class="bi bi-trash"></i>
+            </button>
+        </td>
+        </tr>
+    </tbody>
+</table>
+<!--pop-up modal section for the different actions on Device-->
+<div class="modal fade exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    {{ modalTitle }}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Device Name: </span>
+                    <input type="text" class="form-control" data-ng-model="subscriber=DeviceName" >
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Device OS: </span>
+                    <input type="text" class="form-control" data-ng-model="subscriber=DeviceOS" >
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Device Type: </span>
+                    <input type="text" class="form-control" data-ng-model="subscriber=DeviceName" >
+                </div>
+                <td>
+                    <button
+                    type="button"
+                    class="btn btn-small btn-outline-info"
+                    (click)="editClick(devices)"
+                    >
+                    <i class="bi bi-pen"></i>
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-small btn-outline-success"
+                    (click)="updateClick()"
+                    >
+                    <i class="bi bi-check-square"></i>
+                </button>
+                <button
+                        type="button"
+                        class="btn btn-small btn-outline-danger"
+                        (click)="deleteClick(devices)"
+                    >
+                        <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div><!--end example modal-->

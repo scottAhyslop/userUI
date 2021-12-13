@@ -1,0 +1,5 @@
+{
+    "API_URL": "http://localhost:40500/api/",
+    "PHOTO_URL": "http://localhost:40500/Photos/"
+
+}
