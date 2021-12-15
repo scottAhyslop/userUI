@@ -63,7 +63,7 @@ export class DeviceListComponent implements OnInit {
     var val={
       DeviceId: this.DeviceId
     };
-    this.http.put(environment.API_URL+'device', val)
+    this.http.put(environment.API_URL+'Devices', val)
     .subscribe(res=>{
       alert(res.toString());
       this.refreshDevices();
@@ -72,7 +72,7 @@ export class DeviceListComponent implements OnInit {
 
   deleteClick(DeviceId:any){
    if (confirm('Are you sure?')) {
-    this.http.delete(environment.API_URL+'device/'+ DeviceId)
+    this.http.delete(environment.API_URL+'Devices/'+ DeviceId)
     .subscribe(res=>{
       alert(res.toString());
       this.refreshDevices();

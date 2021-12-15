@@ -69,11 +69,19 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">Device OS: </span>
-                    <input type="text" class="form-control" data-ng-model="subscriber=DeviceOS" >
+                    <select class="classform-select" [(ngModel)]="DeviceOS" >
+                        <option *ngFor="let os of DeviceOS" >
+                            {{DeviceOS}}"
+                        </option>
+                    </select>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">Device Type: </span>
-                    <input type="text" class="form-control" data-ng-model="subscriber=DeviceName" >
+                    <select class="classform-select" [(ngModel)]="DeviceType">
+                        <option *ngFor="let os of DeviceType">
+                            {{DeviceType}}"
+                        </option>
+                    </select>
                 </div>
                 <td>
                     <button

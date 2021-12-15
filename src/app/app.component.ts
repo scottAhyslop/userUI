@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'userUI';
+
+  //for bootstrap menu styling purposes
+  isExpanded = false;
+  collapse() {
+    this.isExpanded = false;
+  }
+  toggle() {
+    this.isExpanded = !this.isExpanded;
+  }
+  //end boostrap section
+  
 }
+
+

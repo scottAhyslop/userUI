@@ -1,33 +1,94 @@
 <div class="container" id="#homeContainer">
 
-  <h3 class="d-flex justify-content-center">Angular 13 Front End</h3> 
- 
-  <nav class="navbar navbar-expand-sm bg-light navbar-dark">
- <ul class="navbar-nav">
-   <li class="nav-item">
-     <button routerLink="home"
-     class="m-1 btn btn-light btn-outline-primary" Button>Home</button>
-   </li>
- 
-   <li class="nav-item">
-     <button routerLink="device"
-     class="m-1 btn btn-light btn-outline-primary" Button>Device</button>
-   </li>
- 
-   <li class="nav-item">
-     <button routerLink="device-list"
-     class="m-1 btn btn-light btn-outline-primary" Button>All Devices</button>
-   </li>
-   
- 
- </ul>
+ <!--  <h3 class="d-flex justify-content-center">Angular 13 Front End</h3>  -->
+  <!--for responsive layout-->
+  
+  <!--end responsive button bits-->
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/']">1ValetAssessmentAPI</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" [ngClass]="{ show: isExpanded}">
+    <ul class="navbar-nav flex-grow">
+      <li class="nav-item">
+        <a class="nav-link text-dark"  routerLink="/"
+        >Home</a>
+      </li>
+    
+    <!--device-list-->
+      <li class="nav-item">
+        <a class="nav-link text-dark"  routerLink="/device-list"
+        >All Devices</a>
+      </li>
+      
+    
+    </ul>
+      </div><!--end navbar-collapse section note: these are the bits that will be hidden when the navbar turns into a button-->
+    </div><!--end wrapping container-->
   </nav>
+
+  <!--new nav from old project
+     <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">1ValetAssessmentAPI</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow">
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link text-dark active" [routerLink]="['/']">Home</a>
+          </li>
+          
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLinkActiveOptions]="{exact: true}"[routerLink]="['/device-owner/owner/list']"
+              >Owners</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  
+  
+  -->
+
   <app-search></app-search>
-  <app-device-list></app-device-list>
+  
   
  <router-outlet></router-outlet>
  
  
  </div>
  
-<router-outlet></router-outlet>
+
