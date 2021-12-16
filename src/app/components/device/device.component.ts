@@ -22,6 +22,8 @@ export class DeviceComponent implements OnInit {
   TimeInUse="";
   DeviceIconPath="";
   DeviceOSIconPath="";
+
+  
   
 
   constructor(private http:HttpClient, private route: ActivatedRoute) { }
@@ -31,7 +33,7 @@ export class DeviceComponent implements OnInit {
   }
 
   refreshDevice(){
-    this.http.get<any>(environment.API_URL+'device').subscribe(data=>{
+    this.http.get<any>(environment.API_URL+'device-list').subscribe(data=>{
       this.devices=data;
     });
   }

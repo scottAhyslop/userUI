@@ -3,9 +3,6 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-
-
-
 @Component({
   selector: 'app-device-list',
   templateUrl: './device-list.component.html',
@@ -20,7 +17,12 @@ export class DeviceListComponent implements OnInit {
   modalTitle="";
   DeviceId=0;
   DeviceName="";
-
+  DeviceOS="";
+  DeviceType="";
+  Temperature=0.0;
+  DeviceStatus="";
+  TimeInUse="";
+  
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.DeviceId = params[this.DeviceId];
@@ -40,12 +42,19 @@ export class DeviceListComponent implements OnInit {
     this.modalTitle = "Add Device";
     this.DeviceId=0;
     this.DeviceName="";
+    this.DeviceName="";
+    this.DeviceOS="";
+
+
   }//end addClick
   
   editClick(device:any){
     this.modalTitle = "Edit Device";
     this.DeviceId=device.DeviceId;
     this.DeviceName=device.DeviceName;
+    this.DeviceType=device.DeviceType;
+    this.DeviceOS=device.DeviceOS;
+
   }//end editClick
   
   createClick(){
