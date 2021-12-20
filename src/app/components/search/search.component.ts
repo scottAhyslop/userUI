@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
   DeviceNameFilter="";
   DeviceOSFilter="";
   DeviceTypeFilter="";
-  devicesWithoutFilter!: any[];
+  devicesWithoutFilter:any=[];
 
   allDevices:any=[];
 
