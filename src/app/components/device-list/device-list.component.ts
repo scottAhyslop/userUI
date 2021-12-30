@@ -37,7 +37,6 @@ export class DeviceListComponent implements OnInit {
       this.devices=data;
     });
   }
-
   addClick(){
     this.modalTitle = "Add Device";
     this.DeviceId=0;
